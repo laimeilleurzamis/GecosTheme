@@ -1,0 +1,300 @@
+/* ==========================================================================
+   1. VARIABLES & BASE
+   ========================================================================== */
+:root {
+    --bg-body: #f4f5f7;
+    --bg-card: #ffffff;
+    --primary-color: #3b82f6;
+    --text-color: #1f2937;
+    --border-radius: 0.4vw;
+    --shadow-sm: 0 0.1vh 0.2vh 0 rgba(0, 0, 0, 0.05);
+}
+
+body {
+    background-color: var(--bg-body);
+    font-family: 'Inter', sans-serif;
+    color: var(--text-color);
+    font-size: 0.9vw;
+}
+
+/* ==========================================================================
+   2. MODERN HEADER (Alignement & Style)
+   ========================================================================== */
+
+.project-header {
+    display: flex !important;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5vw;
+    border-bottom: 1px solid #e2e8f0;
+    width: 100% !important;
+    box-sizing: border-box;
+}
+
+/* --- A. La Roue Crantée (Paramètres) --- */
+.dropdown-component {
+    display: none !important;
+}
+
+.project-header .dropdown-component {
+    margin-top: 0% !important;
+}
+
+/* --- B. Le Sélecteur de Vue (Tableau / Liste) --- */
+.views-switcher-component .views {
+    display: flex;
+    background-color: #f1f5f9;
+    padding: 0.3vh;
+    border-radius: 0.5vw;
+    border: 1px solid #e2e8f0;
+    margin: 0 !important;
+    height: 4vh;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.views-switcher-component {
+    margin-right: auto !important; 
+    display: flex;
+    align-items: center;
+    margin-left : 1vw !important;
+}
+
+.views-switcher-component .views li {
+    display: flex;
+    align-items: center;
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+}
+
+.views-switcher-component .views li a {
+    padding: 0 0.8vw !important;
+    border-radius: 0.4vw;
+    font-weight: 500;
+    font-size: 0.85vw;
+    color: #64748b;
+    text-decoration: none;
+    transition: all 0.2s;
+    height: 3.2vh;
+    display: flex;
+    align-items: center;
+}
+
+.views-switcher-component .views li.active a {
+    background-color: white;
+    color: var(--primary-color);
+    box-shadow: 0 0.1vh 0.3vh rgba(0,0,0,0.1);
+    font-weight: 600;
+}
+
+.views-switcher-component .views li a:hover {
+    color: var(--primary-color);
+}
+
+.views-switcher-component .views li:has(a.view-overview) {
+    display: none;
+}
+
+
+/* --- C. Conteneur de Recherche & Bouton Créer --- */
+.filter-box {
+    margin-left: 0 !important; 
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 1vw !important;
+}
+
+.filter-box form.search {
+    display: flex !important;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5vw;
+}
+
+/* --- D. Bouton "Créer une alerte" --- */
+.global-create-btn {
+    height: 4vh !important;
+    padding: 0 1vw !important;
+    font-size: 0.9vw !important;
+    font-weight: 600;
+    background-color: var(--primary-color) !important;
+    color: white !important;
+    border-radius: var(--border-radius) !important;
+    margin-right: 0 !important;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4vw;
+    box-shadow: var(--shadow-sm);
+    text-decoration: none !important;
+    white-space: nowrap;
+    border: 1px solid transparent;
+    box-sizing: border-box;
+}
+
+.global-create-btn:hover {
+    background-color: #2563eb !important;
+    transform: translateY(-0.1vh);
+}
+
+/* --- E. Barre de Recherche & Filtre --- */
+.input-addon {
+    display: flex;
+    align-items: center;
+    height: 4vh;
+    flex-grow: 1;
+    max-width: 35vw;
+}
+
+/* Champ texte */
+.input-addon-field {
+    height: 4vh !important;
+    min-height: 4vh !important;
+    border: 1px solid #e2e8f0 !important;
+    border-right: none !important;
+    border-radius: 0.4vw 0 0 0.4vw !important;
+    padding-left: 0.7vw !important;
+    font-size: 0.9vw;
+    box-shadow: none !important;
+    width: 100%;
+    box-sizing: border-box !important;
+}
+
+/* Bouton entonnoir */
+.input-addon-item {
+    height: 4vh !important;
+    min-height: 4vh !important;
+    background-color: #f8fafc !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 0 0.4vw 0.4vw 0 !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0.7vw !important;
+    cursor: pointer;
+    box-sizing: border-box !important;
+}
+
+.input-addon-item .dropdown {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+/* ==========================================================================
+   3. TABLEAU & COLONNES
+   ========================================================================== */
+
+.board-add-icon {
+    display: none;
+}
+
+.board-column-title {
+    margin-left: 1vw;
+}
+
+/* Style du bouton "Trier" avec icône SVG personnalisée */
+.board-column-title a:has(.fa-sort) {
+    background-color: var(--primary-color);
+    color: white !important;
+    padding: 0.5vh 0.7vw;
+    border-radius: 0.3vw;
+    text-decoration: none;
+    font-size: 0.85vw;
+    font-weight: 600;
+    margin-left: 1vw;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4vw;
+    vertical-align: middle;
+    transition: background-color 0.2s;
+}
+
+.board-column-title a:has(.fa-sort) i {
+    display: none;
+}
+
+.board-column-title a:has(.fa-sort)::before {
+    content: "";
+    display: block;
+    width: 1vw;   
+    height: 1vw;   
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.board-column-title a:has(.fa-sort)::after {
+    content: "Trier";
+    display: block;
+}
+
+.board-column-title a:has(.fa-sort):hover {
+    background-color: #2563eb;
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   4. CARTES (TASKS)
+   ========================================================================== */
+.task-board {
+    background: var(--bg-card);
+    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    padding: 0.8vw;
+    margin-bottom: 1vh;
+    border-left-width: 0.3vw;
+    transition: transform 0.2s;
+}
+
+.task-board:hover {
+    box-shadow: 0 0.4vh 0.6vh -0.1vh rgba(0, 0, 0, 0.1);
+}
+
+.task-board-icons-row .icon-star, 
+.task-board-icons-row .icon-calendar {
+    display: none;
+}
+
+/* ==========================================================================
+   5. MASQUAGE ÉLÉMENTS
+   ========================================================================== */
+
+.header-creation-menu { display: none; }
+.select-dropdown-input-container { display: none; }
+
+#dropdown li:has(a[href*="docs.kanboard.org"]) { display: none !important; }
+#dropdown li:has(a[href*="controller=ProjectListController"]) { display: none !important; }
+#dropdown li:has(a.board-toggle-column-view) { display: none !important; }
+#dropdown li:has(a[href*="controller=TaskBulkController"]) { display: none !important; }
+.sidebar > ul > li:has(a[href*="controller=DashboardController"][href*="action=show"]) { display: none; }
+.sidebar > ul > li:has(a[href*="controller=DashboardController"][href*="action=subtasks"]) { display: none; }
+.page-header ul li:has(a[href*="action=createPrivate"]) { display: none; }
+.page-header ul li:has(a[href*="controller=ProjectListController"][href*="action=show"]) { display: none; }
+.page-header ul li:has(a[href*="controller=ActivityController"]) { display: none; }
+.notification { display: none; }
+.logo { display: none; }
+
+/* ==========================================================================
+   6. EXCEPTIONS PAR PAGE
+   ========================================================================== */
+
+/* Masquer la recherche sur le Tableau de bord (Dashboard) */
+#dashboard .filter-box {
+    display: none !important;
+}
+
+/* --- Masquer le header UNIQUEMENT sur la page "Résumé" (Vue d'ensemble) --- */
+#main:has(.sidebar-container) .project-header {
+    display: none !important;
+}
