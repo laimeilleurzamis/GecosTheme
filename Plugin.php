@@ -12,6 +12,7 @@ class Plugin extends Base
         $this->hook->on('template:layout:css', array('template' => 'plugins/GecosTheme/Assets/css/userPage/userPage.css'));
         $this->hook->on('template:layout:css', array('template' => 'plugins/GecosTheme/Assets/css/dashboardPage/dashboardPage.css'));
         $this->hook->on('template:layout:css', array('template' => 'plugins/GecosTheme/Assets/css/dashboardPage/activityView.css'));
+        $this->hook->on('template:layout:css', array('template' => 'plugins/GecosTheme/Assets/css/dashboardPage/taskView.css'));
         $this->hook->on('template:layout:css', array('template' => 'plugins/GecosTheme/Assets/css/createAlerte/createAlerte.css'));
 
 
