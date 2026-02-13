@@ -1,0 +1,103 @@
+/* Structure principale */
+#user-section.sidebar-container {
+    display: flex;
+    gap: 2vw;
+    padding: 1vw;
+    background-color: var(--bg-body); /* */
+}
+
+/* Sidebar (Menu de gauche) */
+#user-section .sidebar {
+    flex: 0 0 18vw;
+    background: var(--bg-card); /* */
+    border-radius: var(--border-radius); /* */
+    padding: 1vw;
+    box-shadow: var(--shadow-sm); /* */
+    border: none;
+}
+
+#user-section .sidebar li {
+    list-style-type: none;
+    margin-bottom: 0.5vh;
+}
+
+#user-section .sidebar li a {
+    padding: 0.8vh 1vw;
+    display: block;
+    border-radius: 0.3vw;
+    color: var(--text-color); /* */
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+#user-section .sidebar li.active a,
+#user-section .sidebar li a:hover {
+    background-color: #f1f5f9;
+    color: var(--primary-color); /* */
+    font-weight: 600;
+}
+
+/* Contenu principal (Cartes d'informations) */
+#user-section .sidebar-content {
+    flex: 1;
+}
+
+#user-section .sidebar-content .page-header h2 {
+    font-size: 1.2vw;
+    margin-bottom: 1.5vh;
+    color: var(--text-color); /* */
+}
+
+/* Transformation des listes (panel) en cartes épurées */
+#user-section .panel {
+    background: var(--bg-card) !important; /* */
+    border: 1px solid #e2e8f0 !important;
+    border-radius: var(--border-radius) !important; /* */
+    padding: 1.2vw !important;
+    margin-bottom: 2vh !important;
+    box-shadow: var(--shadow-sm); /* */
+}
+
+#user-section .panel li {
+    list-style-type: none !important;
+    padding: 0.5vh 0;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 0.85vw;
+}
+
+#user-section .panel li:last-child {
+    border-bottom: none;
+}
+
+#user-section .panel li strong {
+    color: #64748b;
+    font-weight: 500;
+    margin-right: 0.5vw;
+}
+
+/* Supprimer les puces par défaut et marges inutiles dans le profil */
+#user-section ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* Style des titres de sections (Résumé, Sécurité, etc.) */
+#user-section .sidebar-content .page-header {
+    border: none;
+    margin-top: 1vh;
+}
+
+
+/* Menu latéral collant (sticky) */
+#user-section .sidebar {
+    flex: 0 0 18vw;
+    background: var(--bg-card);
+    border-radius: var(--border-radius);
+    padding: 1vw;
+    box-shadow: var(--shadow-sm);
+    border: none;
+    
+    /* Garde le menu visible au scroll */
+    position: sticky;
+    top: 1vh;
+}

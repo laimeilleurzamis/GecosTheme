@@ -1,0 +1,249 @@
+/* ==========================================================================
+   KANBOARD THEME: ACTIVITY MODAL & FORM BUTTONS
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. ACTIVITY MODAL POPUP
+   -------------------------------------------------------------------------- */
+
+/* --- Main Modal Container --- */
+#modal-box {
+    /* Pale blue background */
+    background-color: #d6e6f8 !important;
+    /* Subtle pastel blue border */
+    border: 1px solid #dbeafe !important;
+    /* Heavily rounded corners for a modern "App" look */
+    border-radius: 16px !important;
+    /* Soft blue "Glow" shadow effect */
+    box-shadow: 0 20px 25px -5px rgba(147, 197, 253, 0.4), 
+                0 10px 10px -5px rgba(147, 197, 253, 0.2) !important;
+}
+
+/* --- Modal Header (Title & Close Button) --- */
+#modal-header {
+    background-color: #d6e6f8 !important;
+    padding: 15px 20px !important;
+    /* Round only top corners */
+    border-radius: 16px 16px 0 0 !important;
+    border-bottom: 1px solid #dbeafe !important;
+}
+
+#modal-header h2 {
+    /* Dark blue title */
+    color: #1e429f !important;
+    font-weight: 700 !important;
+    margin: 0 !important;
+    font-size: 1.2rem !important;
+}
+
+/* Close 'X' Button */
+#modal-close-button {
+    color: #60a5fa !important; /* Pastel Blue */
+    font-weight: bold;
+    opacity: 1 !important;
+    transition: all 0.2s ease;
+}
+
+#modal-close-button:hover {
+    color: #2563eb !important; /* Bright Blue on hover */
+    transform: scale(1.1);
+}
+
+/* --- Modal Content Area --- */
+#modal-content {
+    background-color: #d6e6f8;
+    padding: 20px !important;
+}
+
+/* Individual Activity Rows */
+.activity-event {
+    background-color: #d6e6f8 !important;
+    margin-bottom: 15px !important;
+    padding-bottom: 15px !important;
+    
+    /* Flexbox for Avatar/Text alignment */
+    display: flex;
+    align-items: flex-start;
+    
+    /* White separator line */
+    border-bottom: #ffffff solid 1px !important;
+}
+
+/* Remove border for the last item */
+.activity-event:last-child {
+    border-bottom: none !important;
+}
+
+/* --- User Avatars (Circles) --- */
+.activity-event .avatar-letter {
+    /* Light blue background */
+    background-color: #eff6ff !important;
+    /* Bright blue text */
+    color: #2563eb !important;
+    /* Definition border */
+    border: 1px solid #dbeafe !important;
+    
+    /* Dimensions & Centering */
+    width: 40px !important;
+    height: 40px !important;
+    line-height: 40px !important;
+    
+    /* Shape & Shadow */
+    font-weight: 600 !important;
+    border-radius: 50% !important;
+    box-shadow: 0 2px 4px rgba(147, 197, 253, 0.2);
+    margin-right: 15px !important;
+}
+
+/* --- Activity Text Content --- */
+.activity-content {
+    margin-left: 0 !important;
+    flex: 1; /* Take remaining width */
+}
+
+/* Main Action Title (e.g., "User created task...") */
+.activity-title {
+    color: #374151 !important; /* Dark Grey */
+    font-size: 0.95rem !important;
+}
+
+/* Links inside the title (Task names) */
+.activity-title a {
+    color: #2563eb !important; /* Bright Blue */
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    transition: color 0.2s;
+}
+
+.activity-title a:hover {
+    color: #1e429f !important;
+    text-decoration: underline !important;
+}
+
+/* Description Box (Comments/Details) */
+.activity-description {
+    background-color: #fafafa !important; /* Very light grey */
+    border-left: 3px solid #60a5fa !important; /* Blue accent bar */
+    padding: 8px 12px !important;
+    margin-top: 8px !important;
+    border-radius: 0 6px 6px 0;
+    color: #4b5563 !important;
+    font-size: 0.9rem !important;
+}
+
+/* Date Stamp */
+.activity-date {
+    color: #9ca3af !important; /* Light Grey */
+    font-size: 0.8rem !important;
+    display: block;
+    margin-top: 4px;
+}
+
+/* --- Webkit Scrollbar Customization --- */
+#modal-box::-webkit-scrollbar {
+    width: 8px;
+}
+#modal-box::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+#modal-box::-webkit-scrollbar-thumb {
+    background-color: #bfdbfe;
+    border-radius: 10px;
+}
+
+/* --------------------------------------------------------------------------
+   2. GLOBAL FORM BUTTONS (CANCEL & SUBMIT)
+   -------------------------------------------------------------------------- */
+
+/* --- Container Alignment --- */
+.form-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px !important; /* Spacing between buttons */
+    
+    /* Hack to hide the default " OR " text node between buttons */
+    color: transparent; 
+    font-size: 0;       
+}
+
+/* Reset font for actual buttons inside the container */
+.form-actions > * {
+    font-size: 0.9rem;
+    color: initial;
+}
+
+/* --- "Cancel" Button Styling (Grey) --- */
+/* Targeting the link (<a>) which acts as the Cancel button */
+.form-actions a {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    
+    /* Dimensions */
+    height: 36px !important;
+    padding: 0 16px !important;
+    margin-left: 5px;
+
+    /* Typography */
+    font-size: 0.9rem !important;
+    font-weight: 600;
+    text-decoration: none !important;
+    white-space: nowrap;
+
+    /* Colors: Soft Grey */
+    background-color: #e5e7eb !important;
+    color: #4b5563 !important;
+    border: 1px solid #d1d5db !important;
+    
+    /* Shape */
+    border-radius: 6px !important;
+    
+    /* Animation */
+    transition: all 0.2s ease-in-out;
+}
+
+/* Cancel Button Hover State */
+.form-actions a:hover {
+    background-color: #cfd1d4 !important;
+    color: #1f2937 !important;
+    border-color: #9ca3af !important;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* --- "Execute/Save" Button Styling (Blue) --- */
+.form-actions button[type="submit"] {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    
+    /* Dimensions */
+    height: 36px !important;
+    padding: 0 20px !important;
+    margin: 0 !important;
+
+    /* Typography */
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    white-space: nowrap;
+
+    /* Colors: Modern Blue */
+    background-color: #2563eb !important;
+    color: white !important;
+    border: 1px solid #2563eb !important;
+
+    /* Shape */
+    border-radius: 6px !important;
+    
+    /* Animation */
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+/* Execute Button Hover State */
+.form-actions button[type="submit"]:hover {
+    background-color: #1d4ed8 !important; /* Darker Blue */
+    border-color: #1d4ed8 !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.4);
+}

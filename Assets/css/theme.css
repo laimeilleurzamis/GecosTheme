@@ -267,6 +267,120 @@ body {
 }
 
 /* ==========================================================================
+   7. USER VIEW (Profile)
+   ========================================================================== */
+
+.user-profile-container {
+    padding: 1vw;
+    background-color: var(--bg-body);
+}
+
+.user-profile-content {
+    display: flex;
+    gap: 2vw;
+    margin-top: 2vh;
+}
+
+.user-profile-card {
+    background: var(--bg-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    padding: 1.5vw;
+    flex: 2;
+}
+
+.user-profile-actions {
+    flex: 1;
+    background: var(--bg-card);
+    border-radius: var(--border-radius);
+    padding: 1vw;
+    box-shadow: var(--shadow-sm);
+}
+
+.user-profile-actions ul {
+    list-style: none;
+    padding: 0;
+}
+
+.user-profile-actions li a {
+    display: block;
+    padding: 0.8vh 1vw;
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: 0.3vw;
+    transition: background 0.2s;
+}
+
+.user-profile-actions li a:hover {
+    background-color: #f1f5f9;
+    color: var(--primary-color);
+}
+
+/* ==========================================================================
+   MODERN PASTEL BLUE DROPDOWN THEME (BALANCED VERSION)
+   ========================================================================== */
+
+/* --- Conteneur principal --- */
+#dropdown ul.dropdown-submenu-open {
+    background-color: #f4f9ff !important;
+    border: 1px solid #dbeafe !important;
+    border-radius: 10px !important;
+    box-shadow: 0 10px 25px -5px rgba(147, 197, 253, 0.4), 0 8px 10px -6px rgba(147, 197, 253, 0.2) !important;
+        padding: 6px !important;
+    
+    min-width: 200px;
+}
+
+/* --- LIGNES DE LA LISTE --- */
+#dropdown ul.dropdown-submenu-open li {
+    border: none !important;
+    margin-bottom: 2px;
+    list-style: none !important;    
+    display: flex;
+    align-items: center !important;
+    flex-direction: row !important;
+    padding: 8px 12px !important;    
+    border-radius: 8px; /* Arrondi un peu plus grand */
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    color: #1e429f; 
+}
+
+/* --- Styles des LIENS --- */
+#dropdown ul.dropdown-submenu-open li a {
+    color: #1e429f !important;
+    font-size: 0.9rem !important;
+    font-weight: 600;
+    text-decoration: none !important;
+    padding: 0 !important;
+    margin-left: 6px; 
+    width: 100%;
+    background-color: transparent !important;
+}
+
+/* --- Style des ICÔNES --- */
+#dropdown ul.dropdown-submenu-open li i {
+    color: #60a5fa !important;
+    margin-right: 10px !important;
+    width: 16px; 
+    text-align: center;
+    font-size: 0.95rem !important;
+    transition: color 0.2s ease;
+}
+
+/* --- EFFET AU SURVOL --- */
+#dropdown ul.dropdown-submenu-open li:hover {
+    background-color: #d8e7fa !important;
+    color: #2563eb !important;
+    transform: translateX(3px);
+}
+
+#dropdown ul.dropdown-submenu-open li:hover a,
+#dropdown ul.dropdown-submenu-open li:hover i {
+    color: #2563eb !important;
+}
+
+/* ==========================================================================
    5. MASQUAGE ÉLÉMENTS
    ========================================================================== */
 
@@ -283,7 +397,6 @@ body {
 .page-header ul li:has(a[href*="controller=ProjectListController"][href*="action=show"]) { display: none; }
 .page-header ul li:has(a[href*="controller=ActivityController"]) { display: none; }
 .notification { display: none; }
-.logo { display: none; }
 
 /* ==========================================================================
    6. EXCEPTIONS PAR PAGE

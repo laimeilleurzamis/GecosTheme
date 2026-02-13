@@ -1,0 +1,276 @@
+/* ==========================================================================
+   DASHBOARD (Version Scroll Page + Sidebar Fixe)
+   ========================================================================== */
+
+/* 1. Conteneur Principal : On laisse la hauteur automatique (Scroll Natif) */
+#dashboard.sidebar-container {
+    display: flex;
+    gap: 2vw;
+    padding: 1vw;
+    background-color: var(--bg-body);
+    height: auto !important;     /* Laisse la page grandir */
+    overflow: visible !important; /* Laisse le navigateur gérer le scroll */
+    align-items: flex-start;      /* Indispensable pour que la sidebar sticky fonctionne */
+}
+
+/* 2. Sidebar : On la rend collante pour qu'elle reste visible au scroll */
+#dashboard .sidebar {
+    flex: 0 0 15vw;
+    background: var(--bg-card);
+    border-radius: var(--border-radius);
+    padding: 1vw;
+    box-shadow: var(--shadow-sm);
+    
+    /* C'est ici que ça se joue : la sidebar glisse puis se fixe */
+    position: sticky;
+    top: 2vh; /* Marge par rapport au haut de l'écran */
+    z-index: 10;
+}
+
+#dashboard .sidebar li a {
+    padding: 0.8vh 1vw;
+    display: block;
+    border-radius: 0.3vw;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+#dashboard .sidebar li.active a {
+    background-color: #f1f5f9;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* 3. Zone de Contenu : Plus de scroll interne bloqué */
+#dashboard .sidebar-content {
+    flex: 1;
+    overflow: visible !important;
+    padding-bottom: 5vh;
+}
+
+/* Titre du Dashboard */
+#dashboard .page-header h2 {
+    font-size: 1.3vw;
+    font-weight: 700;
+    margin-bottom: 2vh;
+}
+
+/* --- LISTES & CARTES --- */
+
+#dashboard .table-list {
+    border: none !important;
+    background: transparent !important;
+}
+
+#dashboard .table-list-row {
+    background: var(--bg-card) !important;
+    margin-bottom: 1.5vh !important;
+    border-radius: var(--border-radius) !important;
+    padding: 1vw !important;
+    box-shadow: var(--shadow-sm);
+    border-left: 0.3vw solid var(--primary-color) !important;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: transform 0.2s;
+}
+
+#dashboard .table-list-row:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+#dashboard .table-list-details {
+    font-size: 0.9vw;
+    color: #64748b;
+}
+
+#dashboard .table-list-title a {
+    font-weight: 600;
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1vw;
+}
+
+/* --- EN-TÊTE DE LISTE & MENU --- */
+
+/* On remet l'en-tête en mode normal (il défilera avec la page) */
+#dashboard .table-list-header {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 0.5vw 1.5vh 0.5vw !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    /* Pas de sticky ici, pour que le menu suive le bouton naturellement */
+    position: static; 
+}
+
+#dashboard .table-list-header-count {
+    font-size: 0.95vw;
+    font-weight: 700;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.05vw;
+}
+
+#dashboard .table-list-header-menu {
+    float: none !important;
+}
+
+#dashboard .table-list-header-menu a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5vw;
+    background-color: var(--bg-card);
+    border: 1px solid #e2e8f0;
+    padding: 0.6vh 1.2vw;
+    border-radius: var(--border-radius);
+    font-size: 0.85vw;
+    font-weight: 600;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow-sm);
+}
+
+#dashboard .table-list-header-menu a:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    background-color: #f8fafc;
+    transform: translateY(-0.2px);
+}
+
+#dashboard .table-list-header-menu a i {
+    color: #94a3b8;
+    transition: color 0.2s;
+}
+
+#dashboard .table-list-header-menu a:hover i {
+    color: var(--primary-color);
+}
+
+/* Cibler uniquement le lien "Nouveau projet" via son contrôleur */
+.page-header ul li a[href*="ProjectCreationController"] {
+    height: 4vh !important;
+    padding: 0 1vw !important;
+    font-size: 0.9vw !important;
+    font-weight: 600;
+    background-color: var(--primary-color, #007bff) !important; /* Fallback couleur bleu si la variable n'existe pas */
+    color: white !important;
+    border-radius: var(--border-radius, 5px) !important;
+    margin-right: 0 !important;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4vw;
+    box-shadow: var(--shadow-sm);
+    text-decoration: none !important;
+    white-space: nowrap;
+    border: 1px solid transparent;
+    box-sizing: border-box;
+}
+
+/* Effet au survol */
+.page-header ul li a[href*="ProjectCreationController"]:hover {
+    background-color: #2563eb !important;
+    transform: translateY(-0.1vh);
+    text-decoration: none !important; /* Kanboard ajoute souvent un soulignement par défaut */
+}
+
+/* Ajustement de l'icône à l'intérieur pour qu'elle ne décale pas le texte */
+.page-header ul li a[href*="ProjectCreationController"] i {
+    margin-right: 0 !important; /* Le gap du parent gère l'espace */
+}
+
+/* Version moderne pour masquer toute la ligne */
+ul.dropdown-submenu-open li:has(a[href*="order=projects.is_active"]),
+ul.dropdown-submenu-open li:has(a[href*="order=projects.is_public"]),
+ul.dropdown-submenu-open li:has(a[href*="order=projects.is_private"]) {
+    display: none !important;
+}
+/* ==========================================================================
+   MODERN PASTEL BLUE TOOLTIP THEME
+   ========================================================================== */
+
+/* --- Conteneur principal de l'infobulle --- */
+#tooltip-container {
+    /* Fond blanc pur pour la lisibilité */
+    background-color: #f4f9ff !important;
+    /* Bordure bleu pastel très subtile */
+    border: 1px solid #dbeafe !important;
+    /* Coins plus arrondis pour un look moderne */
+    border-radius: 12px !important;
+    /* Ombre portée douce et bleutée ("Glow" pastel) */
+    box-shadow: 0 10px 25px -5px rgba(147, 197, 253, 0.4), 0 8px 10px -6px rgba(147, 197, 253, 0.2) !important;
+    padding: 16px !important;
+    min-width: 220px;
+    z-index: 1000 !important;
+    /* Effet de flou en arrière-plan si le navigateur le supporte (Optionnel, très moderne) */
+    backdrop-filter: blur(8px);
+}
+
+/* --- Reset du tableau interne --- */
+#tooltip-container table {
+    margin: 0 !important;
+    width: 100%;
+    border-collapse: separate;
+    /* Espacement vertical entre les groupes titre/nom */
+    border-spacing: 0 6px;
+}
+
+/* --- Styles des EN-TÊTES (Labels ex: "Chef de projet") --- */
+#tooltip-container th {
+    background-color: #f4f9ff !important;
+
+    /* Couleur bleu pastel intermédiaire pour les labels */
+    color: #60a5fa !important;
+    font-size: 0.8rem !important;
+    text-transform: uppercase;
+    letter-spacing: 0.08em; /* Lettres espacées */
+    font-weight: 700 !important;
+    /* Padding ajusté pour aligner avec le texte en dessous */
+    padding: 4px 10px 2px 10px !important;
+    border: none !important;
+    text-align: left;
+    display: block;
+}
+
+/* --- Styles des CELLULES (Conteneurs des liens) --- */
+#tooltip-container td {
+    padding: 0 !important;
+    border: none !important;
+    display: block;
+}
+
+/* --- Styles des LIENS (Noms des utilisateurs) --- */
+#tooltip-container td a {
+    /* Bleu foncé/saturé pour le contraste du texte principal */
+    color: #1e429f !important;
+    font-size: 0.95rem !important;
+    font-weight: 600;
+    text-decoration: none !important;
+    display: block;
+    /* Ajout de padding pour créer une "zone" cliquable autour du nom */
+    padding: 8px 10px !important;
+    /* Coins arrondis pour l'effet de survol */
+    border-radius: 8px;
+    /* Transition douce pour le survol */
+    transition: all 0.2s ease-in-out;
+    background-color: transparent;
+}
+
+/* --- EFFET AU SURVOL des noms --- */
+#tooltip-container td a:hover {
+    /* Fond bleu pastel très clair au passage de la souris */
+    background-color: #d8e7fa !important;
+    /* Le texte devient un bleu plus vif */
+    color: #2563eb !important;
+    /* Léger décalage vers la droite pour un effet dynamique */
+    transform: translateX(3px);
+}
+.alert {
+    display: none;
+}

@@ -1,0 +1,185 @@
+/* ==========================================================================
+   KANBOARD THEME: TASK CREATION & EDITING FORM
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. FORM LAYOUT & TYPOGRAPHY
+   -------------------------------------------------------------------------- */
+
+/* Adjust the main form container spacing */
+.task-form-container {
+    padding: 10px 0;
+}
+
+/* --- Labels (e.g., "Titre", "Couleur") --- */
+.task-form-container label,
+.task-form-secondary-column label {
+    /* Modern Blue Text */
+    color: #1e429f !important;
+    font-size: 0.85rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px !important;
+    margin-top: 15px !important; /* Space between fields */
+    display: block;
+}
+
+/* Remove margin for the very first label */
+.task-form-container .task-form-main-column label:first-of-type,
+.task-form-secondary-column label:first-of-type {
+    margin-top: 0 !important;
+}
+
+/* --------------------------------------------------------------------------
+   2. INPUT FIELDS (Text, Date, Number)
+   -------------------------------------------------------------------------- */
+
+input[type="text"], 
+input[type="number"], 
+input[type="date"],
+input[type="email"],
+input[type="password"] {
+    /* Structure */
+    width: 100%;
+    height: 40px !important; /* Comfortable height */
+    padding: 0 12px !important;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+
+    /* Visual Style */
+    background-color: #ffffff !important;
+    border: 1px solid #dbeafe !important; /* Pastel Blue Border */
+    border-radius: 8px !important; /* Rounded corners */
+    color: #374151 !important; /* Dark Grey Text */
+    font-size: 0.95rem !important;
+    
+    /* Smooth Transition */
+    transition: all 0.2s ease-in-out;
+}
+
+/* Focus State (When clicking inside) */
+input[type="text"]:focus, 
+input[type="number"]:focus, 
+input[type="date"]:focus,
+select:focus,
+textarea:focus {
+    border-color: #2563eb !important; /* Bright Blue */
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15) !important; /* Blue Glow */
+    outline: none !important;
+}
+
+/* Specific styling for the Main Title Input to make it pop */
+#form-title {
+    font-size: 1.1rem !important;
+    font-weight: 600;
+    height: 45px !important;
+    background-color: #fcfdff !important; /* Very subtle tint */
+}
+
+/* --------------------------------------------------------------------------
+   3. SELECT DROPDOWNS (Priority, Color, User)
+   -------------------------------------------------------------------------- */
+
+select {
+    width: 100%;
+    height: 40px !important;
+    padding: 0 30px 0 12px !important; /* Space for arrow */
+    background-color: #ffffff !important;
+    border: 1px solid #dbeafe !important;
+    border-radius: 8px !important;
+    color: #374151 !important;
+    font-size: 0.9rem !important;
+    cursor: pointer;
+    
+    /* Modern Custom Arrow (Optional - works in modern browsers) */
+    appearance: none; 
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2360a5fa' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+}
+
+/* --------------------------------------------------------------------------
+   4. TEXTAREA & MARKDOWN EDITOR
+   -------------------------------------------------------------------------- */
+
+/* The main description box */
+textarea {
+    border: 1px solid #dbeafe !important;
+    border-radius: 8px !important;
+    padding: 12px !important;
+    color: #374151 !important;
+    font-family: inherit;
+    min-height: 150px;
+    background-color: #ffffff;
+}
+
+/* Kanboard Markdown Toolbar (Bold, Italic, etc.) */
+.text-editor-toolbar {
+    background-color: #eff6ff !important; /* Light Pastel Blue Header */
+    border: 1px solid #dbeafe !important;
+    border-bottom: none !important; /* Connect to textarea */
+    border-radius: 8px 8px 0 0 !important;
+    padding: 5px 10px !important;
+}
+
+/* Fix textarea border when toolbar is present */
+.text-editor-toolbar + textarea {
+    border-top: 1px solid #dbeafe !important;
+    border-radius: 0 0 8px 8px !important;
+}
+
+/* Toolbar Icons */
+.text-editor-toolbar a {
+    color: #60a5fa !important;
+    margin-right: 8px;
+    transition: color 0.2s;
+}
+
+.text-editor-toolbar a:hover {
+    color: #2563eb !important;
+}
+
+/* --------------------------------------------------------------------------
+   5. HELPER TEXT & TAGS
+   -------------------------------------------------------------------------- */
+
+/* Small help text (e.g., "Write your text in Markdown") */
+.form-help {
+    color: #9ca3af !important;
+    font-size: 0.8rem !important;
+    font-style: italic;
+    margin-top: 4px;
+    display: block;
+}
+
+/* Tag Input (Select2 container if used, or standard input) */
+.select2-container--default .select2-selection--multiple {
+    border: 1px solid #dbeafe !important;
+    border-radius: 8px !important;
+    min-height: 40px !important;
+    padding: 4px !important;
+}
+
+/* --------------------------------------------------------------------------
+   6. DATE PICKER FIXES
+   -------------------------------------------------------------------------- */
+/* Ensures the jQuery UI datepicker fits the theme if it pops up */
+#ui-datepicker-div {
+    border: 1px solid #dbeafe !important;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1) !important;
+    border-radius: 12px !important;
+    background-color: white !important;
+    padding: 5px;
+}
+.ui-datepicker-header {
+    background-color: #eff6ff !important;
+    border-bottom: 1px solid #dbeafe !important;
+    border-radius: 8px 8px 0 0;
+    color: #1e429f !important;
+}
+
+.text-editor-toolbar {
+    display: none;
+}
