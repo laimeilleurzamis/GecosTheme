@@ -2,6 +2,9 @@
 $columnsList = $this->task->projectModel->columnModel->getList($task['project_id']);
 $columnsJson = htmlspecialchars(json_encode($columnsList), ENT_QUOTES, 'UTF-8');
 ?>
+<?php 
+    $available_users = $this->task->projectUserRoleModel->getAssignableUsersList($task['project_id']);
+?>
 
 <section id="task-summary">
     <h2><?= $this->text->e($task['title']) ?></h2>
@@ -15,7 +18,7 @@ $columnsJson = htmlspecialchars(json_encode($columnsList), ENT_QUOTES, 'UTF-8');
                     <!-- Status shows now a button wich show the column and allow to change it -->
                     <li style="display: flex; align-items: center; gap: 10px;">
                         <strong><?= t('Status:') ?></strong>
-                        <div class="task-custom-footer-inline" onclick="event.stopPropagation();">
+                        <div class="task-custom-footer-inline modal-view-button" onclick="event.stopPropagation();">
                             <div class="dropdown column-dropdown" 
                                 data-project-id="<?= $task['project_id'] ?>"
                                 data-task-id="<?= $task['id'] ?>"
@@ -41,7 +44,7 @@ $columnsJson = htmlspecialchars(json_encode($columnsList), ENT_QUOTES, 'UTF-8');
                     </li>
                     <li style="display: flex; align-items: center; gap: 10px;">
                         <strong><?= t('Priority:') ?></strong>
-                        <div class="task-custom-footer-inline" onclick="event.stopPropagation();">
+                        <div class="task-custom-footer-inline modal-view-button" onclick="event.stopPropagation();">
                             <div class="dropdown priority-dropdown" 
                                 data-project-id="<?= $task['project_id'] ?>"
                                 data-task-id="<?= $task['id'] ?>">
@@ -70,18 +73,39 @@ $columnsJson = htmlspecialchars(json_encode($columnsList), ENT_QUOTES, 'UTF-8');
                         </div>
                     </li>
                     <!-- Creator and assignee are now in the 1st column -->
-                    <li>
+                    <li style="display: flex; align-items: center; gap: 10px;">
                         <strong><?= t('Assignee:') ?></strong>
-                        <span>
-                        <?php if ($task['assignee_username']): ?>
-                            <?= $this->text->e($task['assignee_name'] ?: $task['assignee_username']) ?>
-                        <?php else: ?>
-                            <?= t('not assigned') ?>
-                        <?php endif ?>
-                        </span>
-                        <?php if ($editable && $task['owner_id'] != $this->user->getId()): ?>
-                            - <span><?= $this->url->link(t('Assign to me'), 'TaskModificationController', 'assignToMe', ['task_id' => $task['id'], 'csrf_token' => $this->app->getToken()->getReusableCSRFToken()]) ?></span>
-                        <?php endif ?>
+                        <div class="task-custom-footer-inline modal-view-button" onclick="event.stopPropagation();">
+                            <div class="dropdown assignee-dropdown" 
+                                data-project-id="<?= $task['project_id'] ?>"
+                                data-task-id="<?= $task['id'] ?>">
+                                
+                                <span class="badge-item assignee dropdown-toggle" 
+                                    title="Cliquez pour changer l'assigné" 
+                                    style="cursor: pointer;" 
+                                    data-current-assignee="<?= $task['owner_id'] ?>"
+                                    onclick="event.preventDefault(); event.stopPropagation();">
+                                    <i class="fa fa-user"></i> <?= $task['assignee_name'] ?: $task['assignee_username'] ?: 'Non assigné' ?>
+                                </span>
+
+                                <ul class="dropdown-menu assignee-menu">
+                                    <li>
+                                        <a href="#" class="assignee-change-link" data-user-id="0">
+                                        </a>
+                                    </li>
+                                    <?php foreach ($available_users as $user_id => $user_name): ?>
+                                        <li>
+                                            <a href="#" class="assignee-change-link" data-user-id="<?= $user_id ?>">
+                                                <?= $this->text->e($user_name) ?>
+                                                <?php if ($task['owner_id'] == $user_id): ?>
+                                                    <i class="fa fa-check"></i>
+                                                <?php endif ?>
+                                            </a>
+                                        </li>
+                                    <?php endforeach ?>
+                                </ul>
+                            </div>
+                        </div>
                     </li>
                     <?php if ($task['creator_username']): ?>
                         <li>
