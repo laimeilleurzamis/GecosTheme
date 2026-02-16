@@ -1,0 +1,133 @@
+/* ==========================================================================
+   DASHBOARD: VUE "MES TÂCHES" (CARD STYLE)
+   ========================================================================== */
+
+/* --- 1. Nettoyage du conteneur de liste --- */
+.table-list {
+    border: none !important;
+    background: transparent !important;
+    padding-top: 10px;
+}
+
+/* On cache l'en-tête du tableau s'il existe (pour un look pur "cartes") */
+.table-list-header {
+    display: none !important;
+}
+
+/* --- 2. Transformation de la ligne en "Carte" --- */
+.table-list-row {
+    /* Fond blanc pur pour détacher du fond gris/bleu de la page */
+    background-color: #ffffff !important;
+    
+    /* Bordures du thème (Haut, Droite, Bas) */
+    border-top: 1px solid #dbeafe !important;
+    border-right: 1px solid #dbeafe !important;
+    border-bottom: 1px solid #dbeafe !important;
+    
+    /* La bordure GAUCHE conserve la couleur de la tâche (Kanboard la gère), 
+       on l'épaissit juste pour faire un joli indicateur */
+    border-left-width: 6px !important;
+    border-left-style: solid !important;
+    
+    /* Forme et Espacement */
+    border-radius: 12px !important; /* Coins arrondis */
+    margin-bottom: 12px !important; /* Espace entre les cartes */
+    padding: 16px 20px !important;  /* Espace intérieur confortable */
+    
+    /* Ombre portée douce (Glow bleu) */
+    box-shadow: 0 4px 6px -1px rgba(147, 197, 253, 0.1), 
+                0 2px 4px -1px rgba(147, 197, 253, 0.06) !important;
+    
+    /* Transition pour l'effet de survol */
+    transition: all 0.2s ease-in-out;
+    
+    /* Flexbox pour organiser le contenu */
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    min-height: auto !important;
+}
+
+/* --- Effet au Survol de la carte --- */
+.table-list-row:hover {
+    transform: translateY(-3px); /* La carte se soulève */
+    box-shadow: 0 10px 15px -3px rgba(147, 197, 253, 0.3), 
+                0 4px 6px -2px rgba(147, 197, 253, 0.1) !important;
+    border-right-color: #2563eb !important; /* La bordure droite s'illumine subtilement */
+}
+
+/* --- 3. Titre de la tâche --- */
+.table-list-title {
+    margin-bottom: 6px !important;
+    line-height: 1.4 !important;
+}
+
+.table-list-title a {
+    color: #1e429f !important; /* Bleu foncé thème */
+    font-weight: 700 !important;
+    font-size: 1.05rem !important;
+    text-decoration: none !important;
+}
+
+.table-list-title a:hover {
+    color: #2563eb !important;
+    text-decoration: underline !important;
+}
+
+/* ID de la tâche (ex: #222) - Style "Badge" */
+.table-list-title a[href*="task_id"] {
+    background-color: #eff6ff; /* Fond bleu très clair */
+    color: #2563eb !important; /* Texte bleu vif */
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.85rem !important;
+    margin-right: 8px;
+    font-weight: 600 !important;
+    border: 1px solid #dbeafe;
+}
+
+/* --- 4. Détails (Projet > Colonne) --- */
+.table-list-details {
+    color: #6b7280 !important; /* Gris moyen */
+    font-size: 0.85rem !important;
+    font-weight: 500;
+    margin-bottom: 8px !important;
+}
+
+/* Les liens dans les détails (Nom du projet) */
+.table-list-details strong {
+    color: #4b5563 !important;
+    font-weight: 600 !important;
+}
+
+/* --- 5. Icônes et Méta-données (Bas de carte) --- */
+.table-list-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espacement entre les icônes */
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px dashed #eff6ff; /* Séparation très subtile */
+}
+
+/* Avatar de l'utilisateur */
+.task-list-avatars .avatar-letter {
+    background-color: #eff6ff !important;
+    color: #2563eb !important;
+    border: 1px solid #dbeafe !important;
+    width: 25px !important;
+    height: 25px !important;
+    line-height: 25px !important;
+    font-size: 0.7rem !important;
+    border-radius: 50%;
+}
+
+/* Icônes générales (Date, etc.) */
+.table-list-icons i {
+    color: #9ca3af !important; /* Icônes gris clair */
+}
+
+.table-list-icons span {
+    color: #6b7280 !important;
+    font-size: 0.85rem !important;
+}
