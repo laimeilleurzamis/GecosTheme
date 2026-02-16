@@ -2,17 +2,21 @@
     display: none;
 }
 
-/* Alignement horizontal de tous les badges */
+/* Horizontql layout for the footer */
 .task-custom-footer-inline {
     display: flex;
-    flex-wrap: nowrap; /* Force une seule ligne */
+    flex-wrap: nowrap;
     align-items: center;
     gap: 6px;
     margin-top: 8px;
-    position: relative; /* Nécessaire pour le positionnement absolu du dropdown */
+    position: relative;
 }
 
-/* Style des badges (pillules blanches) */
+.modal-view-button {
+    margin: 0 !important;
+}
+
+/* Badges style */
 .badge-item {
     background: #ffffff;
     border: 1px solid #e2e8f0;
@@ -23,6 +27,7 @@
     display: flex;
     align-items: center;
     white-space: nowrap;
+    height: 10px;
 }
 
 .badge-item i {
@@ -30,25 +35,22 @@
     color: #718096;
 }
 
-/* Couleur spécifique pour le badge d'état */
+/* State badge style */
 .status-column {
     font-weight: bold;
     color: #2d3748;
 }
 
-/* Style pour le lien généré par le modal helper */
 a.js-modal-medium {
     text-decoration: none !important;
     color: #2d3748 !important;
 }
 
-/* On applique le style de badge à l'élément généré */
 a.js-modal-medium .fa-th-list {
     margin-right: 5px;
     color: #718096;
 }
 
-/* Ajoutez cette règle pour que le lien ressemble à vos autres badges */
 a.js-modal-medium {
     background: #ffffff;
     border: 1px solid #e2e8f0;
@@ -65,9 +67,9 @@ a.js-modal-medium:hover {
     border-color: #cbd5e0;
 }
 
-/* Styles pour le dropdown de colonnes - très ciblé pour ne pas affecter le reste */
+/* Dropdown styles */
 .task-custom-footer-inline .dropdown {
-    position: static; /* Permet au dropdown de sortir du flux */
+    position: static;
     display: inline-block;
 }
 
@@ -78,7 +80,7 @@ a.js-modal-medium:hover {
 
 .task-custom-footer-inline .dropdown-menu {
     display: none;
-    position: fixed; /* Position fixe pour sortir de tous les conteneurs */
+    position: fixed;
     background: #ffffff;
     border: 1px solid #e2e8f0;
     border-radius: 6px;
@@ -87,7 +89,7 @@ a.js-modal-medium:hover {
     margin: 0;
     padding: 4px 0;
     min-width: 150px;
-    z-index: 9999; /* Très élevé pour passer au-dessus de tout */
+    z-index: 9999;
 }
 
 .task-custom-footer-inline .dropdown.active .dropdown-menu {

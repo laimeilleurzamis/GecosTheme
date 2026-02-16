@@ -18,8 +18,8 @@ body {
 }
 
 /* ==========================================================================
-   2. MODERN HEADER (Alignement & Style)
-   ========================================================================== */
+    2. MODERN HEADER (Alignment & Style)
+    ========================================================================== */
 
 .project-header {
     display: flex !important;
@@ -31,7 +31,7 @@ body {
     box-sizing: border-box;
 }
 
-/* --- A. La Roue Crantée (Paramètres) --- */
+/* Hide parameters */
 .dropdown-component {
     display: none !important;
 }
@@ -40,7 +40,7 @@ body {
     margin-top: 0% !important;
 }
 
-/* --- B. Le Sélecteur de Vue (Tableau / Liste) --- */
+/* view selectors */
 .views-switcher-component .views {
     display: flex;
     background-color: #edf6ff !important;
@@ -97,7 +97,6 @@ body {
     display: none;
 }
 
-/* --- E. Barre de Recherche & Filtre --- */
 .input-addon {
     display: flex;
     align-items: center;
@@ -106,7 +105,6 @@ body {
     max-width: 35vw;
 }
 
-/* Champ texte */
 .input-addon-field {
     height: 4vh !important;
     min-height: 4vh !important;
@@ -119,6 +117,19 @@ body {
     width: 100%;
     box-sizing: border-box !important;
 }
+.input-addon-item {
+    height: 4vh !important;
+    min-height: 4vh !important;
+    background-color: #f8fafc !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 0 0.4vw 0.4vw 0 !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0.7vw !important;
+    cursor: pointer;
+    box-sizing: border-box !important;
+}
 
 .input-addon-item .dropdown {
     display: flex;
@@ -129,8 +140,8 @@ body {
 }
 
 /* ==========================================================================
-   3. TABLEAU & COLONNES
-   ========================================================================== */
+    3. BOARD & COLUMNS
+    ========================================================================== */
 
 .board-add-icon {
     display: none;
@@ -140,7 +151,7 @@ body {
     margin-left: 1vw;
 }
 
-/* Style du bouton "Trier" avec icône SVG personnalisée */
+/* Style the "Sort" button with custom SVG icon */
 .board-column-title a:has(.fa-sort) {
     background-color: var(--primary-color);
     color: white !important;
@@ -184,8 +195,8 @@ body {
 }
 
 /* ==========================================================================
-   4. CARTES (TASKS)
-   ========================================================================== */
+    4. CARDS (TASKS)
+    ========================================================================== */
 .task-board {
     background: var(--bg-card);
     border: none;
@@ -201,6 +212,8 @@ body {
     box-shadow: 0 0.4vh 0.6vh -0.1vh rgba(0, 0, 0, 0.1);
 }
 
+.task-board-sort-handle *,
+.task-board-header,
 .task-board-icons-row .icon-star, 
 .task-board-icons-row .icon-calendar {
     display: none;
@@ -260,7 +273,7 @@ body {
    MODERN PASTEL BLUE DROPDOWN THEME (BALANCED VERSION)
    ========================================================================== */
 
-/* --- Conteneur principal --- */
+/* Main container */
 #dropdown ul.dropdown-submenu-open {
     background-color: #f4f9ff !important;
     border: 1px solid #dbeafe !important;
@@ -271,7 +284,7 @@ body {
     min-width: 200px;
 }
 
-/* --- LIGNES DE LA LISTE --- */
+/* LIST ROWS */
 #dropdown ul.dropdown-submenu-open li {
     border: none !important;
     margin-bottom: 2px;
@@ -280,13 +293,13 @@ body {
     align-items: center !important;
     flex-direction: row !important;
     padding: 8px 12px !important;    
-    border-radius: 8px; /* Arrondi un peu plus grand */
+    border-radius: 8px;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
     color: #1e429f; 
 }
 
-/* --- Styles des LIENS --- */
+/* LINK styles */
 #dropdown ul.dropdown-submenu-open li a {
     color: #1e429f !important;
     font-size: 0.9rem !important;
@@ -298,7 +311,7 @@ body {
     background-color: transparent !important;
 }
 
-/* --- Style des ICÔNES --- */
+/* ICON styles */
 #dropdown ul.dropdown-submenu-open li i {
     color: #60a5fa !important;
     margin-right: 10px !important;
@@ -308,7 +321,7 @@ body {
     transition: color 0.2s ease;
 }
 
-/* --- EFFET AU SURVOL --- */
+/* HOVER EFFECT */
 #dropdown ul.dropdown-submenu-open li:hover {
     background-color: #d8e7fa !important;
     color: #2563eb !important;
@@ -321,8 +334,8 @@ body {
 }
 
 /* ==========================================================================
-   5. MASQUAGE ÉLÉMENTS
-   ========================================================================== */
+    5. HIDE ELEMENTS
+    ========================================================================== */
 
 .header-creation-menu { display: none; }
 .select-dropdown-input-container { display: none; }
@@ -337,28 +350,29 @@ body {
 .page-header ul li:has(a[href*="controller=ProjectListController"][href*="action=show"]) { display: none; }
 .page-header ul li:has(a[href*="controller=ActivityController"]) { display: none; }
 .notification { display: none; }
-/* Hide unwanted sort options: ID and Assignee+Priority */
 #dropdown ul.dropdown-submenu-open li:has(a[href*="sort=id"]),
 #dropdown ul.dropdown-submenu-open li:has(a[href*="sort=assignee-priority"]) {
     display: none !important;
 }
+.comment-sorting { display: none; }
+
 
 /* ==========================================================================
-   6. EXCEPTIONS PAR PAGE
-   ========================================================================== */
+    6. PAGE EXCEPTIONS
+    ========================================================================== */
 
-/* Masquer la recherche sur le Tableau de bord (Dashboard) */
+/* Hide research bar on dashboard */
 #dashboard .filter-box {
     display: none !important;
 }
 
-/* --- Masquer le header UNIQUEMENT sur la page "Résumé" (Vue d'ensemble) --- */
+/* Hide header only on project view */
 #main:has(.sidebar-container) .project-header {
     display: none !important;
 }
 
 /* ==========================================================================
-   7. LOGO GECOS
+   7. GECOS LOGO
    ========================================================================== */
 
 .logo-gecos {
@@ -384,7 +398,7 @@ body {
 }
 
 /* ==========================================================================
-   8. MODAL OVERLAY
+   8. MODAL OVERLAY & misc
    ========================================================================== */
 
 #modal-overlay {

@@ -19,7 +19,13 @@ class Plugin extends Base
         $this->hook->on('template:layout:css', array('template' => 'plugins/GecosTheme/Assets/css/dashboardPage/taskView.css'));
         $this->hook->on('template:layout:css', array('template' => 'plugins/GecosTheme/Assets/css/userPage/userPage.css'));
 
-        /* --- Overrides & Routes --- */
+        $this->hook->on('template:layout:js', array('template' => 'plugins/GecosTheme/Assets/js/dropdown.js'));
+
+        $this->helper->register('gecos', '\Kanboard\Plugin\GecosTheme\Helper\GecosTheme');
+
+        $this->template->hook->attach('template:board:private:task:before-title', 'GecosTheme:board/task_before_title');
+
+        $this->template->setTemplateOverride('project_header/search', 'GecosTheme:project_header/search');
         $this->template->setTemplateOverride('header/title', 'GecosTheme:header/title');
         $this->template->setTemplateOverride('header/user_dropdown', 'GecosTheme:header/user_dropdown');
         $this->template->setTemplateOverride('task/details', 'GecosTheme:task/details');
