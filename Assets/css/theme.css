@@ -11,7 +11,7 @@
 }
 
 body {
-    background-color: var(--bg-body);
+    background-color: #edf6ff !important;
     font-family: 'Inter', sans-serif;
     color: var(--text-color);
     font-size: 0.9vw;
@@ -43,7 +43,7 @@ body {
 /* --- B. Le Sélecteur de Vue (Tableau / Liste) --- */
 .views-switcher-component .views {
     display: flex;
-    background-color: #f1f5f9;
+    background-color: #edf6ff !important;
     padding: 0.3vh;
     border-radius: 0.5vw;
     border: 1px solid #e2e8f0;
@@ -83,7 +83,7 @@ body {
 }
 
 .views-switcher-component .views li.active a {
-    background-color: white;
+    background-color: #fff !important;
     color: var(--primary-color);
     box-shadow: 0 0.1vh 0.3vh rgba(0,0,0,0.1);
     font-weight: 600;
@@ -95,51 +95,6 @@ body {
 
 .views-switcher-component .views li:has(a.view-overview) {
     display: none;
-}
-
-
-/* --- C. Conteneur de Recherche & Bouton Créer --- */
-.filter-box {
-    margin-left: 0 !important; 
-    margin-bottom: 0 !important;
-    margin-top: 0 !important;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    margin-right: 1vw !important;
-}
-
-.filter-box form.search {
-    display: flex !important;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 0.5vw;
-}
-
-/* --- D. Bouton "Créer une alerte" --- */
-.global-create-btn {
-    height: 4vh !important;
-    padding: 0 1vw !important;
-    font-size: 0.9vw !important;
-    font-weight: 600;
-    background-color: var(--primary-color) !important;
-    color: white !important;
-    border-radius: var(--border-radius) !important;
-    margin-right: 0 !important;
-    display: inline-flex !important;
-    align-items: center;
-    justify-content: center;
-    gap: 0.4vw;
-    box-shadow: var(--shadow-sm);
-    text-decoration: none !important;
-    white-space: nowrap;
-    border: 1px solid transparent;
-    box-sizing: border-box;
-}
-
-.global-create-btn:hover {
-    background-color: #2563eb !important;
-    transform: translateY(-0.1vh);
 }
 
 /* --- E. Barre de Recherche & Filtre --- */
@@ -162,21 +117,6 @@ body {
     font-size: 0.9vw;
     box-shadow: none !important;
     width: 100%;
-    box-sizing: border-box !important;
-}
-
-/* Bouton entonnoir */
-.input-addon-item {
-    height: 4vh !important;
-    min-height: 4vh !important;
-    background-color: #f8fafc !important;
-    border: 1px solid #e2e8f0 !important;
-    border-radius: 0 0.4vw 0.4vw 0 !important;
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    padding: 0 0.7vw !important;
-    cursor: pointer;
     box-sizing: border-box !important;
 }
 
@@ -397,6 +337,11 @@ body {
 .page-header ul li:has(a[href*="controller=ProjectListController"][href*="action=show"]) { display: none; }
 .page-header ul li:has(a[href*="controller=ActivityController"]) { display: none; }
 .notification { display: none; }
+/* Hide unwanted sort options: ID and Assignee+Priority */
+#dropdown ul.dropdown-submenu-open li:has(a[href*="sort=id"]),
+#dropdown ul.dropdown-submenu-open li:has(a[href*="sort=assignee-priority"]) {
+    display: none !important;
+}
 
 /* ==========================================================================
    6. EXCEPTIONS PAR PAGE
@@ -444,4 +389,46 @@ body {
 
 #modal-overlay {
     background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* ==========================================================================
+   GECOS TAG FILTER DROPDOWN
+   ========================================================================== */
+
+.gecos-tag-select {
+    height: 4vh !important;
+    padding: 0 25px 0 10px !important; /* Espace pour la flèche */
+    background-color: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 0.4vw !important;
+    color: #1f2937 !important;
+    font-size: 0.85vw !important;
+    font-weight: 500;
+    cursor: pointer;
+    outline: none;
+    box-shadow: var(--shadow-sm);
+    
+    /* Apparence moderne (suppression de la flèche par défaut pour certains navigateurs) */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    
+    /* Petite flèche personnalisée SVG (bleue comme le thème) */
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233b82f6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 14px;
+    
+    min-width: 120px;
+    max-width: 200px;
+    transition: all 0.2s ease;
+}
+
+.gecos-tag-select:hover {
+    border-color: var(--primary-color) !important;
+}
+
+.gecos-tag-select:focus {
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2) !important;
 }

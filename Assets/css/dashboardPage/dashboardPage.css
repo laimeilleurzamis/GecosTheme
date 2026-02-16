@@ -7,7 +7,7 @@
     display: flex;
     gap: 2vw;
     padding: 1vw;
-    background-color: var(--bg-body);
+    background-color: #edf6ff !important;
     height: auto !important;     /* Laisse la page grandir */
     overflow: visible !important; /* Laisse le navigateur gérer le scroll */
     align-items: flex-start;      /* Indispensable pour que la sidebar sticky fonctionne */

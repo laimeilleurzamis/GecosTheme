@@ -9,7 +9,7 @@
 /* --- Main Modal Container --- */
 #modal-box {
     /* Pale blue background */
-    background-color: #d6e6f8 !important;
+    background-color: #edf6ff !important;
     /* Subtle pastel blue border */
     border: 1px solid #dbeafe !important;
     /* Heavily rounded corners for a modern "App" look */
@@ -21,7 +21,7 @@
 
 /* --- Modal Header (Title & Close Button) --- */
 #modal-header {
-    background-color: #d6e6f8 !important;
+    background-color: #edf6ff !important;
     padding: 15px 20px !important;
     /* Round only top corners */
     border-radius: 16px 16px 0 0 !important;
@@ -51,13 +51,13 @@
 
 /* --- Modal Content Area --- */
 #modal-content {
-    background-color: #d6e6f8;
+    background-color: #edf6ff !important;
     padding: 20px !important;
 }
 
 /* Individual Activity Rows */
 .activity-event {
-    background-color: #d6e6f8 !important;
+    background-color: #edf6ff !important;
     margin-bottom: 15px !important;
     padding-bottom: 15px !important;
     
