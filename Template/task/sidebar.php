@@ -1,6 +1,7 @@
 <div class="sidebar sidebar-icons">
     <div class="sidebar-title">
-        <h2><?= t('Task #%d', $task['id']) ?></h2>
+        <!--h2><?= t('Task #%d', $task['id']) ?></h2-->
+        <h2><?="Alerte n°" . $task['id'] ?></h2>
     </div>
     <ul>
         <li <?= $this->app->checkMenuSelection('TaskViewController', 'show') ?>>
