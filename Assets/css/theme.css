@@ -97,6 +97,10 @@ body {
     display: none;
 }
 
+.views-switcher-component {
+    display: none !important;
+}
+
 .input-addon {
     display: flex;
     align-items: center;
@@ -149,6 +153,8 @@ body {
 
 .board-column-title {
     margin-left: 1vw;
+    font-size: 1.5em;
+    font-weight: 700;
 }
 
 /* Style the "Sort" button with custom SVG icon */
@@ -193,6 +199,7 @@ body {
     background-color: #2563eb;
     cursor: pointer;
 }
+
 
 /* ==========================================================================
     4. CARDS (TASKS)

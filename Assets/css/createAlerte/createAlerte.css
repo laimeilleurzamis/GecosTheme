@@ -183,3 +183,9 @@ textarea {
 .text-editor-toolbar {
     display: none;
 }
+
+/* Enlever le bouton "Moi" pour l'auto-assignation */
+a.assign-me {
+    display: none !important;
+}
+

@@ -271,6 +271,11 @@ ul.dropdown-submenu-open li:has(a[href*="order=projects.is_private"]) {
     /* Léger décalage vers la droite pour un effet dynamique */
     transform: translateX(3px);
 }
+
+#dropdown ul.dropdown-submenu-open li:has(i.fa-list) {
+    display: none !important;
+}
+
 .alert {
     display: none;
 }
