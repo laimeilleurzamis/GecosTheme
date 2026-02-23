@@ -24,13 +24,15 @@ class Plugin extends Base
         $this->helper->register('gecos', '\Kanboard\Plugin\GecosTheme\Helper\GecosTheme');
 
         $this->template->hook->attach('template:board:private:task:before-title', 'GecosTheme:board/task_before_title');
+        $this->template->hook->attach('template:layout:head', 'GecosTheme:layout/favicon');
 
-        $this->template->setTemplateOverride('project_header/search', 'GecosTheme:project_header/search');
         $this->template->setTemplateOverride('header/title', 'GecosTheme:header/title');
         $this->template->setTemplateOverride('header/user_dropdown', 'GecosTheme:header/user_dropdown');
         $this->template->setTemplateOverride('task/details', 'GecosTheme:task/details');
         $this->template->setTemplateOverride('task/show', 'GecosTheme:task/show');
         $this->template->setTemplateOverride('task/sidebar', 'GecosTheme:task/sidebar');
+        $this->template->setTemplateOverride('task_creation/show', 'GecosTheme:task_creation/show');
+        $this->template->setTemplateOverride('task_modification/show', 'GecosTheme:task_modification/show');
 
         $this->route->addRoute('/gecostheme/move', 'MoveTaskController', 'move', 'GecosTheme');
         $this->route->addRoute('/gecostheme/update-priority', 'MoveTaskController', 'updatePriority', 'GecosTheme');

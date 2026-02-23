@@ -93,7 +93,7 @@ body {
     color: var(--primary-color);
 }
 
-.views-switcher-component .views li:has(a.view-overview) {
+.views-switcher-component {
     display: none;
 }
 
@@ -149,6 +149,15 @@ body {
 
 .board-column-title {
     margin-left: 1vw;
+}
+
+.board-column-title a {
+    pointer-events: none;
+    text-decoration: none;
+}
+
+.board-column-title a>i {
+    display: none;
 }
 
 /* Style the "Sort" button with custom SVG icon */
@@ -355,6 +364,7 @@ body {
     display: none !important;
 }
 .comment-sorting { display: none; }
+.select2-search__field {display: none !important;}
 
 
 /* ==========================================================================

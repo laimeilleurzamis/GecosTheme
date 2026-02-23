@@ -29,7 +29,7 @@ $columnsJson = htmlspecialchars(json_encode($columnsList), ENT_QUOTES, 'UTF-8');
                                     <?= $this->form->csrf() ?>
                                 </div>
 
-                                <span class="badge-item status-column dropdown-toggle" 
+                                <span class="badge-task-item status-column dropdown-toggle" 
                                     title="Cliquez pour changer de colonne" 
                                     style="cursor: pointer;" 
                                     data-column-id="<?= $task['column_id'] ?>"
@@ -50,7 +50,7 @@ $columnsJson = htmlspecialchars(json_encode($columnsList), ENT_QUOTES, 'UTF-8');
                                 data-project-id="<?= $task['project_id'] ?>"
                                 data-task-id="<?= $task['id'] ?>">
                                 
-                                <span class="badge-item priority dropdown-toggle" 
+                                <span class="badge-task-item priority dropdown-toggle" 
                                     title="Cliquez pour changer la priorité" 
                                     style="cursor: pointer;" 
                                     data-current-priority="<?= $task['priority'] ?>"
@@ -82,7 +82,7 @@ $columnsJson = htmlspecialchars(json_encode($columnsList), ENT_QUOTES, 'UTF-8');
                                 data-project-id="<?= $task['project_id'] ?>"
                                 data-task-id="<?= $task['id'] ?>">
                                 
-                                <span class="badge-item assignee dropdown-toggle" 
+                                <span class="badge-task-item assignee dropdown-toggle" 
                                     title="Cliquez pour changer l'assigné" 
                                     style="cursor: pointer;" 
                                     data-current-assignee="<?= $task['owner_id'] ?>"

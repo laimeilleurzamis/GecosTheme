@@ -1,0 +1,2 @@
+<link rel="icon" type="image/png" href="<?= $this->url->dir() ?>plugins/GecosTheme/Assets/img/gecos.png">
+<link rel="icon" type="image/svg+xml" href="<?= $this->url->dir() ?>plugins/GecosTheme/Assets/img/gecos.svg">

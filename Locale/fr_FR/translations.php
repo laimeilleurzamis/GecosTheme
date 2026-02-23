@@ -10,4 +10,7 @@ return array(
     'Reorder this column by assignee (Z-A)' => 'Trier par assigné (Z-A)',
     
     'Close all tasks in this column and this swimlane' => 'Fermer toutes les tâches dans cette colonne',
+
+    'New task' => 'Nouvelle alerte',
+    'Tags' => 'Localisation',
 );
