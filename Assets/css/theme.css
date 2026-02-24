@@ -157,7 +157,7 @@ body {
     font-weight: 700;
 }
 
-.board-column-title a {
+.board-column-title>.dropdown>a:first-child {
     pointer-events: none;
     text-decoration: none;
 }
