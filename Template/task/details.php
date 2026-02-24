@@ -1,9 +1,14 @@
-<?php
-$columnsList = $this->task->projectModel->columnModel->getList($task['project_id']);
-$columnsJson = htmlspecialchars(json_encode($columnsList), ENT_QUOTES, 'UTF-8');
+<?php // Get the list of columns for the project to populate the column dropdown
+    $columnsList = $this->task->projectModel->columnModel->getList($task['project_id']);
+    $columnsJson = htmlspecialchars(json_encode($columnsList), ENT_QUOTES, 'UTF-8');
 ?>
-<?php 
+
+<?php // Get the list of assignable users for the project to populate the assignee dropdown
     $available_users = $this->task->projectUserRoleModel->getAssignableUsersList($task['project_id']);
+?>
+
+<?php // Mapping numeric priorities to custom labels
+    $priority_labels = [0 => 'Résolue', 1 => 'Faible', 2 => 'Moyenne', 3 => 'Urgente']; 
 ?>
 
 <section id="task-summary">
@@ -55,20 +60,20 @@ $columnsJson = htmlspecialchars(json_encode($columnsList), ENT_QUOTES, 'UTF-8');
                                     style="cursor: pointer;" 
                                     data-current-priority="<?= $task['priority'] ?>"
                                     onclick="event.preventDefault(); event.stopPropagation();">
-                                    <i class="fa fa-signal"></i> <?= $task['priority'] ?>
+                                    <i class="fa fa-signal"></i> <?= $priority_labels[$task['priority']] ?? $task['priority'] ?>
                                 </span>
                                 
                                 <ul class="dropdown-menu priority-menu">
-                                    <?php for ($i = 0; $i <= 3; $i++): ?>
+                                    <?php foreach ($priority_labels as $value => $label): ?>
                                         <li>
-                                            <a href="#" class="priority-change-link" data-priority="<?= $i ?>">
-                                                Priorité <?= $i ?>
-                                                <?php if ($task['priority'] == $i): ?>
+                                            <a href="#" class="priority-change-link" data-priority="<?= $value ?>">
+                                                <?= $label ?>
+                                                <?php if ($task['priority'] == $value): ?>
                                                     <i class="fa fa-check"></i>
                                                 <?php endif ?>
                                             </a>
                                         </li>
-                                    <?php endfor ?>
+                                    <?php endforeach ?>
                                 </ul>
                             </div>
                         </div>
