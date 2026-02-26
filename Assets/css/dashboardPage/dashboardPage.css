@@ -275,7 +275,3 @@ ul.dropdown-submenu-open li:has(a[href*="order=projects.is_private"]) {
 #dropdown ul.dropdown-submenu-open li:has(i.fa-list) {
     display: none !important;
 }
-
-.alert {
-    display: none;
-}
